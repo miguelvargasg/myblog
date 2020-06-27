@@ -44,7 +44,7 @@ def question_5_return_all_post_comments(post):
     post1 = Post.objects.get(title="What's the Django admin?")
     return Comment.objects.filter(post=post1).order_by('-created')
 
-
+'''
 def question_6_get_approved_comments_from_queryset():
     """
     Implement a queryset method on the Comment model called
@@ -88,3 +88,4 @@ def question_11_delete_post_and_all_related_comments(post):
     """
     Delete the post object provided, and all related comments.
     """
+'''
