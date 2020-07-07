@@ -3,7 +3,7 @@ import string
 from model_mommy import mommy
 import pytest
 
-from blog.models import Comment, Post
+from blogs.models import Comment, Post, PostQuerySet
 from . import queries
 
 pytestmark = pytest.mark.django_db

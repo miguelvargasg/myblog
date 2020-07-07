@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Sum, Q
 from django.contrib.auth.models import User
-from blogs.models import Comment, Post
+from blogs.models import Comment, Post, CommentQuerySet, PostQuerySet
 
 User = get_user_model()
 
@@ -44,7 +44,7 @@ def question_5_return_all_post_comments(post):
     post1 = Post.objects.get(title="What's the Django admin?")
     return Comment.objects.filter(post=post1).order_by('-created')
 
-'''
+
 def question_6_get_approved_comments_from_queryset():
     """
     Implement a queryset method on the Comment model called
@@ -62,6 +62,8 @@ def question_7_text_search_post_text(expression):
     this expression in their content or title. Make the query
     case-insensitive
     """
+    return Post.objects.find()
+
 
 
 def question_8_return_the_post_with_the_most_comments():
@@ -88,4 +90,3 @@ def question_11_delete_post_and_all_related_comments(post):
     """
     Delete the post object provided, and all related comments.
     """
-'''
