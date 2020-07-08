@@ -26,11 +26,21 @@ admin.site.register(models.Comment, CommentAdmin)
 
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
+
+    prepopulated_fields = {'slug': ('title',)}
+
+    list_filter = (
+        'status',
+        'topics',
+
+    )
     list_display = (
         'title',
         'content',
         'created',
         'updated',
+        'author',
+        'status',
         #'comments',
     )
     search_fields = (
@@ -39,3 +49,11 @@ class PostAdmin(admin.ModelAdmin):
         'author__first_name',
         'author__last_name'
     )
+
+@admin.register(models.Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'slug',
+    )
+    prepopulated_fields = {'slug': ('name',)}

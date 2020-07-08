@@ -6,10 +6,8 @@ from . import models
 # Create your views here.
 
 def home(request):
-    """
-    The Blog homepage
-
-    """
-    #latest_posts = models.Post.objects.published().order_by('-published')[:3]
-    #context = {'latest_posts': latest_posts}
-    return render(request, 'blogs/home.html', {'message': 'Hello world!'})
+    latest_posts = models.Post.objects.all()
+    # Add as context variable "latest_posts"
+    context = {'latest_posts': latest_posts}
+    return render(request, 'blogs/home.html', context)
+    #return render(request, 'blogs/home.html', {'message': 'Hello world!'})
