@@ -6,7 +6,6 @@
 <h2>Latest posts</h2>
 {% for post in latest_posts %}
   <h3>{{ post.title }}</h3>
-  {{ post.content }}
+  {{ post.content|linebreaks }}
 {% endfor %}
-
 {% endblock %}
